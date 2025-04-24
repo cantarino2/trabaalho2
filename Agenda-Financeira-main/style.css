@@ -1,0 +1,192 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .header {
+    background-color: #2b2d42;
+    padding: 20px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-bottom: 4px solid #8d99ae;
+  }
+  
+  .header .logout-button {
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .login-container, 
+  .finance-container, 
+  .profile-container, 
+  .recover-container, 
+  .reset-container {
+    display: none;
+  }
+  
+  .balance {
+    margin: 20px 0;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .charts {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .chart {
+    width: 80%;
+    height: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transactions {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .transaction-item {
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #8d99ae;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #2b2d42;
+  }
+  
+  .input-group {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  input, select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    min-width: 200px;
+  }
+  
+  input:focus, select:focus {
+    border-color: #8d99ae;
+    outline: none;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .profile-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px auto;
+  }
+  
+  .error-message {
+    color: #d63031;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .input-field {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .link {
+    color: #2b2d42;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  .success-message {
+    color: #00b894;
+    margin-bottom: 15px;
+  }
+  
+  .remove-btn {
+    padding: 5px 10px;
+    background-color: #d63031;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .remove-btn:hover {
+    background-color: #b71c1c;
+  }
+  
+  @media (max-width: 600px) {
+    .chart {
+      width: 95%;
+      height: 250px;
+    }
+    
+    .input-group {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

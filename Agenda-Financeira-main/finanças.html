@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanças Pessoais</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <span>Gerenciador de Finanças</span>
+    <button class="logout-button" onclick="auth.logout()">Sair</button>
+  </div>
+
+  <!-- Tela de Login -->
+  <div class="login-container" id="login-container">
+    <h2>Login</h2>
+    <form class="login-form" id="login-form">
+      <div class="input-field">
+        <input type="email" id="login-email" placeholder="E-mail" required>
+        <div id="login-email-error" class="error-message"></div>
+      </div>
+      <div class="input-field">
+        <input type="password" id="login-password" placeholder="Senha" required>
+        <div id="login-password-error" class="error-message"></div>
+      </div>
+      <button type="button" onclick="auth.login()">Entrar</button>
+      <button type="button" onclick="ui.showRegister()">Cadastrar</button>
+      <span class="link" onclick="ui.showRecover()">Esqueci minha senha</span>
+    </form>
+  </div>
+
+  <!-- Tela de Cadastro -->
+  <div class="register-container" id="register-container">
+    <h2>Cadastrar</h2>
+    <form class="login-form" id="register-form">
+      <div class="input-field">
+        <input type="text" id="register-name" placeholder="Nome completo" required>
+        <div id="register-name-error" class="error-message"></div>
+      </div>
+      <div class="input-field">
+        <input type="email" id="register-email" placeholder="E-mail" required>
+        <div id="register-email-error" class="error-message"></div>
+      </div>
+      <div class="input-field">
+        <input type="password" id="register-password" placeholder="Senha" required>
+        <div id="register-password-error" class="error-message"></div>
+      </div>
+      <div class="input-field">
+        <input type="password" id="register-confirm-password" placeholder="Confirme a senha" required>
+        <div id="register-confirm-password-error" class="error-message"></div>
+      </div>
+      <button type="button" onclick="auth.register()">Cadastrar</button>
+      <button type="button" onclick="ui.showLogin()">Voltar ao Login</button>
+    </form>
+  </div>
+
+  <!-- Tela de Recuperação de Senha -->
+  <div class="recover-container" id="recover-container">
+    <h2>Recuperar Senha</h2>
+    <form class="login-form" id="recover-form">
+      <div id="recover-instructions">Digite seu e-mail para receber o link de recuperação</div>
+      <div class="input-field">
+        <input type="email" id="recover-email" placeholder="Seu e-mail cadastrado" required>
+        <div id="recover-email-error" class="error-message"></div>
+      </div>
+      <button type="button" onclick="auth.sendRecoveryEmail()">Enviar Link de Recuperação</button>
+      <button type="button" onclick="ui.showLogin()">Voltar ao Login</button>
+    </form>
+  </div>
+
+  <!-- Tela de Redefinição de Senha -->
+  <div class="reset-container" id="reset-container">
+    <h2>Redefinir Senha</h2>
+    <form class="login-form" id="reset-form">
+      <div class="input-field">
+        <input type="password" id="reset-password" placeholder="Nova senha" required>
+        <div id="reset-password-error" class="error-message"></div>
+      </div>
+      <div class="input-field">
+        <input type="password" id="reset-confirm-password" placeholder="Confirme a nova senha" required>
+        <div id="reset-confirm-password-error" class="error-message"></div>
+      </div>
+      <button type="button" onclick="auth.resetPassword()">Redefinir Senha</button>
+      <button type="button" onclick="ui.showLogin()">Cancelar</button>
+    </form>
+  </div>
+
+  <!-- Tela de Finanças -->
+  <div class="finance-container" id="finance-container">
+    <div class="balance">Saldo Atual: R$ <span id="balance">0,00</span></div>
+
+    <div class="charts">
+      <div class="chart">
+        <canvas id="financeChart"></canvas>
+      </div>
+    </div>
+
+    <div class="transactions" id="transactions"></div>
+
+    <div class="input-group">
+      <input type="date" id="date" placeholder="Data">
+      <input type="text" id="description" placeholder="Descrição">
+      <input type="number" id="amount" placeholder="Valor">
+      <select id="type">
+        <option value="income">Entradas</option>
+        <option value="expense">Saídas</option>
+      </select>
+      <button onclick="finance.addTransaction()">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- Tela de Perfil -->
+  <div class="profile-container" id="profile-container">
+    <h2>Perfil de Usuário</h2>
+    <p>Usuário atual: <span id="current-username"></span></p>
+    <h3>Trocar Senha</h3>
+    <input type="password" id="new-password" placeholder="Nova senha" required>
+    <button onclick="auth.changePassword()">Alterar Senha</button>
+  </div>
+
+  <script src="email-service.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
